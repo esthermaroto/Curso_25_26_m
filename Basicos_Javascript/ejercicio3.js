@@ -6,8 +6,8 @@ Se pretende crear un pequeño sistema bancario en js
 -[x] 2.depositar dinero en una cuenta
 -[x] 3.retirar dinero de una cuenta(cuando tenga saldo positivo)
 -[x] 4.consultar el saldo de una cuenta
--[] 5.transferir dinero de una cuenta a otra(validando que la cuenta origen tenga saldo positivo)
--[] 6.mantener un listado de cuentas y buscar una cuenta por su titular
+-[x] 5.transferir dinero de una cuenta a otra(validando que la cuenta origen tenga saldo positivo)
+-[x] 6.mantener un listado de cuentas y buscar una cuenta por su titular
 
 -[x] Cuando creemos una cuenta se debe de generar un número de cuenta aleatorio de longitud de un IBAN
 -[] Crear una función para los test de las funciones
@@ -139,6 +139,20 @@ function transferirDinero(numeroCuentaOrigen, numeroCuentaDestino, cantidad) {
     }
 }
 
+//Buscar cuenta por titular
+/**
+ * Busca una cuenta bancaria por el nombre del titular
+ * @param {string} titular - nombre del titular de la cuenta a buscar
+ */
+function buscarCuentaPorTitular(titular) {
+    const cuenta = cuentas.find(cuenta => cuenta.titular === titular);
+    if (cuenta) {
+        return cuenta;
+    } else {
+        console.log("Cuenta no encontrada");
+        return null;
+    }
+}
 
 
 
@@ -174,4 +188,7 @@ depositarDinero(cuentas[1].numeroCuenta, 200);
 console.log(cuentas);
 transferirDinero(cuentas[0].numeroCuenta, cuentas[1].numeroCuenta, 30);
 console.log(cuentas);
+//test de la funcion buscarCuentaPorTitular
+console.log(buscarCuentaPorTitular("Juan"));
+console.log(buscarCuentaPorTitular("Maria"));
 
