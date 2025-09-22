@@ -2,7 +2,7 @@
 #Gestión bancaria revolut
 
 Se pretende crear un pequeño sistema bancario en js
--[] 1.crear cuentas con titular y saldo
+-[x] 1.crear cuentas con titular y saldo
 -[] 2.depositar dinero en una cuenta
 -[] 3.retirar dinero de una cuentaI(cuando tenga saldo positivo)
 -[] 4.consultar el saldo de una cuenta
@@ -46,7 +46,24 @@ function generarNumeroCuenta() {
     return letras + ibanDigControl + ibanEntidad + ibanOficina + ibanDC + numeroCuenta;
 }
 
-//
+//Crear cuenta
+/**
+ * Crea una cuenta bancaria con un titular y un saldo inicial de 0, generando un número de cuenta aleatorio
+ * @param {string} titular - nombre del titular de la cuenta
+ */
+function crearCuenta(titular) {
+    numeroCuentaGenerado = generarNumeroCuenta();
+    const nuevaCuenta = {
+        titular: titular,
+        numeroCuenta: numeroCuentaGenerado,
+        saldo: saldoInicial
+    };
+    cuentas.push(nuevaCuenta);
+}
+
+
+
+
 
 
 
@@ -54,3 +71,6 @@ function generarNumeroCuenta() {
 //-----------inicializar la funcion----------------
 //test de la funcion generarNumeroCuenta
 console.log(generarNumeroCuenta());
+//test de la funcion crearCuenta
+crearCuenta("Juan");
+console.log(cuentas);
