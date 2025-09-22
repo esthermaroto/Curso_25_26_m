@@ -5,7 +5,7 @@ Se pretende crear un pequeño sistema bancario en js
 -[x] 1.crear cuentas con titular y saldo
 -[x] 2.depositar dinero en una cuenta
 -[x] 3.retirar dinero de una cuenta(cuando tenga saldo positivo)
--[] 4.consultar el saldo de una cuenta
+-[x] 4.consultar el saldo de una cuenta
 -[] 5.transferir dinero de una cuenta a otra(validando que la cuenta origen tenga saldo positivo)
 -[] 6.mantener un listado de cuentas y buscar una cuenta por su titular
 
@@ -21,8 +21,6 @@ const ibanDigControl = "07";
 const ibanEntidad = "2100";
 const ibanOficina = "0418";
 const ibanDC = "45";
-const numeros = "0123456789";
-const longitudIBAN = 10;
 const saldoInicial = 0;
 let numeroCuentaGenerado = "";
 let titularCuenta = "";
@@ -40,15 +38,14 @@ let cuentaDestino = null;
  * @returns {string} - número de cuenta aleatorio con los campos del IBAN prestablecidos
  */
 function generarNumeroCuenta() {
-    if (numeroCuentaGenerado.length != 24) {
-        for (let i = 0; i < longitudIBAN; i++) {
-            numeroCuenta += numeros.charAt(Math.floor(Math.random() * numeros.length));
-        }
-    return IBAN = letras + ibanDigControl + ibanEntidad + ibanOficina + ibanDC + numeroCuenta;
-    } else {
-        return numeroCuentaGenerado;
-    }
+    numeroCuenta = "";
+        for (let i = 0; i < 10; i++) {
+            numeroCuenta += Math.floor(Math.random() * 10);
+   
 }
+ return  letras + ibanDigControl + ibanEntidad + ibanOficina + ibanDC + numeroCuenta;
+}
+
 
 //Crear cuenta
 /**
@@ -56,7 +53,7 @@ function generarNumeroCuenta() {
  * @param {string} titular - nombre del titular de la cuenta
  */
 function crearCuenta(titular) {
-    numeroCuentaGenerado = IBAN;
+    numeroCuentaGenerado = generarNumeroCuenta();
     const nuevaCuenta = {
         titular: titular,
         numeroCuenta: numeroCuentaGenerado,
@@ -119,6 +116,29 @@ function consultarSaldo(numeroCuenta) {
     }
 }
 
+//Transferir dinero
+/**
+ * Transfiere una cantidad de dinero de una cuenta bancaria a otra, siempre que la cuenta origen tenga saldo suficiente
+ * @param {string} numeroCuentaOrigen - número de cuenta desde la que se va a transferir el dinero
+ * @param {string} numeroCuentaDestino - número de cuenta a la que se va a transferir el dinero
+ * @param {number} cantidad - cantidad de dinero a transferir
+ */
+function transferirDinero(numeroCuentaOrigen, numeroCuentaDestino, cantidad) {
+    cuentaOrigen = cuentas.find(cuenta => cuenta.numeroCuenta === numeroCuentaOrigen);
+    cuentaDestino = cuentas.find(cuenta => cuenta.numeroCuenta === numeroCuentaDestino);
+    if (cuentaOrigen && cuentaDestino) {
+        if (cantidad > 0 && cuentaOrigen.saldo >= cantidad) {
+            cuentaOrigen.saldo -= cantidad;
+            cuentaDestino.saldo += cantidad;
+            console.log(`Se han transferido ${cantidad} de la cuenta ${numeroCuentaOrigen} a la cuenta ${numeroCuentaDestino}. \nNuevo saldo de la cuenta ${numeroCuentaOrigen}: ${cuentaOrigen.saldo}. \nNuevo saldo de la cuenta ${numeroCuentaDestino}: ${cuentaDestino.saldo}`);
+        } else {
+            console.log("La cantidad a transferir debe ser mayor que 0 y menor o igual que el saldo disponible en la cuenta origen");
+        }
+    } else {
+        console.log("Cuenta no encontrada");
+    }
+}
+
 
 
 
@@ -145,3 +165,13 @@ console.log(cuentas);
 //test de la funcion retirarDinero
 retirarDinero(cuentas[0].numeroCuenta, 50);
 console.log(cuentas);
+//test de la funcion consultarSaldo
+consultarSaldo(cuentas[0].numeroCuenta);
+//test de la funcion transferirDinero
+crearCuenta("Maria");
+console.log(cuentas);
+depositarDinero(cuentas[1].numeroCuenta, 200);
+console.log(cuentas);
+transferirDinero(cuentas[0].numeroCuenta, cuentas[1].numeroCuenta, 30);
+console.log(cuentas);
+
