@@ -10,7 +10,7 @@ Se pretende crear un pequeño sistema bancario en js
 -[x] 6.mantener un listado de cuentas y buscar una cuenta por su titular
 
 -[x] Cuando creemos una cuenta se debe de generar un número de cuenta aleatorio de longitud de un IBAN
--[] Crear una función para los test de las funciones
+-[x] Crear una función para los test de las funciones
 */
 
 //-----------declarar las variables----------------
@@ -53,12 +53,17 @@ function generarNumeroCuenta() {
  * @param {string} titular - nombre del titular de la cuenta
  */
 function crearCuenta(titular) {
+
+    if (typeof titular !== "string" || titular.trim() === "") {
+        throw new Error("El titular debe ser una cadena de texto");
+    }
     numeroCuentaGenerado = generarNumeroCuenta();
     const nuevaCuenta = {
         titular: titular,
         numeroCuenta: numeroCuentaGenerado,
         saldo: saldoInicial
     };
+
     cuentas.push(nuevaCuenta);
 }
 
@@ -154,41 +159,88 @@ function buscarCuentaPorTitular(titular) {
     }
 }
 
+//Test
+function test() {
+    console.log("---TESTING---");
 
 
+    //crear cuentas
+    console.log("---Crear cuenta---");
+    try {
+        crearCuenta("Sergio");
+    } catch (error) {
+        console.log("Error al crear cuenta Sergio:", error.message);
+    }
+
+    try {
+        crearCuenta("Esther");
+    } catch (error) {
+        console.log("Error al crear cuenta Esther:", error.message);
+    }
+
+    try {
+        crearCuenta(123); //debería dar error
+    } catch (error) {
+        console.log("Error al crear cuenta 123:", error.message);
+    }
+    console.log("Cuentas actuales:", cuentas);
 
 
+    //depositar dinero
+    console.log("---Depositar dinero---");
+    try {
+        depositarDinero(cuentas[0].numeroCuenta, 100);
+        depositarDinero(cuentas[1].numeroCuenta, -50); //debería dar error
+        depositarDinero("ES0702100041845012345678", 50); //debería dar error
+    }catch (error) {
+        console.log("Error al depositar dinero: " + error.message);
+    }
 
+    //retirar dinero
+    console.log("---Retirar dinero---");
+    try {
+        retirarDinero(cuentas[0].numeroCuenta, 50);
+        retirarDinero(cuentas[1].numeroCuenta, 100); //debería dar error
+        retirarDinero("ES0702100041845012345678", 50); //debería dar error
+    }catch (error) {
+        console.log("Error al retirar dinero: " + error.message);
+    }
 
+    //consultar saldo
+    console.log("---Consultar saldo---");
+    try {
+        consultarSaldo(cuentas[0].numeroCuenta);
+        consultarSaldo("ES0702100041845012345678"); //debería dar error
+    }catch (error) {
+        console.log("Error al consultar saldo: " + error.message);
+    }
 
+    //transferir dinero
+    console.log("---Transferir dinero---");
+    try {
+        transferirDinero(cuentas[0].numeroCuenta, cuentas[1].numeroCuenta, 30);
+        transferirDinero(cuentas[0].numeroCuenta, cuentas[1].numeroCuenta, 100); //debería dar error
+        transferirDinero(cuentas[0].numeroCuenta, "ES0702100041845012345678", 10); //debería dar error
+    }catch (error) {
+        console.log("Error al transferir dinero: " + error.message);
+    }
 
+    //buscar cuenta por titular
+    console.log("---Buscar cuenta por titular---");
+    try {
+        console.log(buscarCuentaPorTitular("Sergio"));
+        console.log(buscarCuentaPorTitular("Juan")); //debería dar error
+        console.log(buscarCuentaPorTitular(123)); //debería dar error
+    }catch (error) {
+        console.log("Error al buscar cuenta por titular: " + error.message);
+    }
 
-
+    console.log("---END OF TESTING---"); 
+    
+}
 
 
 
 //-----------inicializar la funcion----------------
-//test de la funcion generarNumeroCuenta
-console.log(generarNumeroCuenta());
-//test de la funcion crearCuenta
-crearCuenta("Juan");
-console.log(cuentas);
-//test de la funcion depositarDinero
-depositarDinero(cuentas[0].numeroCuenta, 100);
-console.log(cuentas);
-//test de la funcion retirarDinero
-retirarDinero(cuentas[0].numeroCuenta, 50);
-console.log(cuentas);
-//test de la funcion consultarSaldo
-consultarSaldo(cuentas[0].numeroCuenta);
-//test de la funcion transferirDinero
-crearCuenta("Maria");
-console.log(cuentas);
-depositarDinero(cuentas[1].numeroCuenta, 200);
-console.log(cuentas);
-transferirDinero(cuentas[0].numeroCuenta, cuentas[1].numeroCuenta, 30);
-console.log(cuentas);
-//test de la funcion buscarCuentaPorTitular
-console.log(buscarCuentaPorTitular("Juan"));
-console.log(buscarCuentaPorTitular("Maria"));
+test();
 
