@@ -105,6 +105,21 @@ function retirarDinero(numeroCuenta, cantidad) {
     }
 }
 
+//Consultar saldo
+/**
+ * Devuelve el saldo actual de una cuenta bancaria
+ * @param {string} numeroCuenta - número de cuenta de la que se quiere consultar el saldo
+ */
+function consultarSaldo(numeroCuenta) {
+    cuenta = cuentas.find(cuenta => cuenta.numeroCuenta === numeroCuenta);
+    if (cuenta) {
+        console.log(`El saldo de la cuenta ${numeroCuenta} es: ${cuenta.saldo}`);
+    } else {
+        console.log("Cuenta no encontrada");
+    }
+}
+
+
 
 
 
@@ -126,4 +141,7 @@ crearCuenta("Juan");
 console.log(cuentas);
 //test de la funcion depositarDinero
 depositarDinero(cuentas[0].numeroCuenta, 100);
+console.log(cuentas);
+//test de la funcion retirarDinero
+retirarDinero(cuentas[0].numeroCuenta, 50);
 console.log(cuentas);
