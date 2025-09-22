@@ -4,7 +4,7 @@
 Se pretende crear un pequeño sistema bancario en js
 -[x] 1.crear cuentas con titular y saldo
 -[x] 2.depositar dinero en una cuenta
--[] 3.retirar dinero de una cuenta(cuando tenga saldo positivo)
+-[x] 3.retirar dinero de una cuenta(cuando tenga saldo positivo)
 -[] 4.consultar el saldo de una cuenta
 -[] 5.transferir dinero de una cuenta a otra(validando que la cuenta origen tenga saldo positivo)
 -[] 6.mantener un listado de cuentas y buscar una cuenta por su titular
@@ -84,6 +84,30 @@ function depositarDinero(numeroCuenta, cantidad) {
         console.log("Cuenta no encontrada");
     }
 }
+
+//Retirar dinero
+/**
+ * Retira una cantidad de dinero de una cuenta bancaria, siempre que tenga saldo suficiente
+ * @param {string} numeroCuenta - número de cuenta de la que se va a retirar el dinero
+ * @param {number} cantidad - cantidad de dinero a retirar
+ */
+function retirarDinero(numeroCuenta, cantidad) {
+    cuenta = cuentas.find(cuenta => cuenta.numeroCuenta === numeroCuenta);
+    if (cuenta) {
+        if (cantidad > 0 && cuenta.saldo >= cantidad) {
+        cuenta.saldo -= cantidad;
+        console.log(`Se han retirado ${cantidad} de la cuenta ${numeroCuenta}. Nuevo saldo: ${cuenta.saldo}`);
+        } else {
+            console.log("La cantidad a retirar debe ser mayor que 0 y menor o igual que el saldo disponible");
+        }
+    } else {
+        console.log("Cuenta no encontrada");
+    }
+}
+
+
+
+
 
 
 
