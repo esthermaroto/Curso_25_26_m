@@ -178,3 +178,241 @@ const numerosPares = [4,5,6,7,8];
 const hayPares = numerosPares.some(numero => numero % 2 === 0); //devuelve true o false si hay algún número par 
 
 
+//---------------------------------------------------03/10/2025-------------------------------------------------------
+const usuario ={
+    name: "Esther",
+    email: "emartor@g.educaand.es",
+    active: true,
+}
+
+
+//para las claves
+const claves = Object.keys(usuario);
+
+//Utilidad verificar si las claves están todas siguiendo un objeto de partidda 
+
+//1.-¿como compruebo que todas las claves existen?
+function validarCamposRequeridos (objeto,camposRequeridos){
+    const clavesObjeto = Object.keys(objeto);
+    //retorno verdadero o falso 
+    return camposRequeridos.every(campo => clavesObjeto.includes(campo));
+}
+
+
+//data:
+const datosFormulario = {name: "Carla", active: false};
+
+const esValido = validarCamposRequeridos(datosFormulario, ["name", "email", "active"])
+
+
+//para los valores: values
+const producto = {
+    nombre: "laptop",
+    stock: 100,
+    precio: 1100,
+    destacado: true,
+}
+
+//array de valores:
+const valores = Object.values(producto);
+//["laptop",100,1100,true]
+
+//verificar si algún valor cumple una condición:
+
+
+const precipitaciones = {
+    enero: 110,
+    febrero: 98,
+    marzo: 120,
+    abril: 50,
+}
+
+//algún mes la precipitación fue superior a 100 litros???
+
+const mesSuperiorCien = Object.values(precipitaciones)
+    .some(precipitacion => precipitacion > 100);
+
+//cuantos litros han caido los meses enero-abril
+const totalLitros = Object.values(precipitaciones)
+    .reduce((total, precipitacion)=> total + Number(precipitacion),0);
+
+//calcular la precipitacion máxima
+const maxPrecipitaciones = Object.values(precipitaciones)
+    .reduce((max, precipitacion)=> {
+        return Number(precipitacion) > max ? Number(precipitacion) : max;
+    },0);
+//const maxPrecipitaciones= Math.max(...Object.values(precipitaciones));
+
+//obtener pares [clave:valor] <---entries()
+const configuracion = {
+    tema: "oscuro",
+    idioma: "es",
+    notificaciones: true,
+    volumen: 75,
+}
+
+//Obtener array de pares clave,valor:
+const entradas = Object.entries(configuracion);
+/*
+    [
+        ["tema","oscuro"],
+        ["idioma","es"],
+        ["notificaciones", true]
+        ["volumen",75]
+    ]
+*/
+
+//+++++
+const usuarioBD ={
+    name: "Esther",
+    password: "xfst20012",
+    email: "emartor@g.educaand.es",
+    active: true,
+}
+//filtrar. Eliminar los campos sensibles de este objet usuarioBD ("password")
+
+
+Object.entries(usuarioBD).filter([])
+
+
+// destructuring
+
+const {nombre, email} = usuarioBD;  //---> const nombre = usuarioBD.nombre
+                                    //---> const email = usuarioBD.email
+
+                                
+const data =[1,2,3,4,5];
+const [a,b,,c] = data;
+
+
+
+function vData (array){
+    const [v1,v2] = array;
+    console.log("v1:",v1)
+    console.log("v2:",v2);
+}
+vData([1,2,3,4,5])  // <---- 
+//     _ _______
+//     v1   v2
+
+//crear función llamada mostrarPersona. Obtener el username, y las 2 primeras redes sociales que el usuario tenga:
+
+const usuario3 = {
+    id:1,
+    info: {
+        username: "esther",
+        redes: ["twitter","instagram","facebook"],
+        edad: 77,
+    }
+}
+
+const {info:{username, redes:[r1,r2]}} = usuario3;
+/*
+username ---> esther
+r1 ----> twitter
+r2 ----> instagram
+*/
+
+//obtener el nombre y la edad del siguiente objeto. Si no existe edad que guarde el valor 0
+const data4 = {
+    id: 101,
+    usuario: {
+        perfil:{
+            nombre2: "Lucía",
+            edad: 28,
+            direccion: {
+                ciuedad: "Granada",
+                pais: "España",
+            },
+        },
+        activo: true,
+    },
+};
+
+console.log(data4?.idd)     //comprueba si está 
+
+const { usuario:{ perfil:{ nombre2,edad=0 } } }= data4;
+/*
+ nombre2 ----> "Lucía"
+ edad -----> 28
+*/
+
+
+const productos =[
+{
+    id:1,
+    nombre: "Laptop",
+    precio: 1000,
+    fabricante: {
+        nombre: "HP",
+        pais: "USA",
+        constacto: {
+            email: "info@hp.com",
+            telefono: "+1-555-0123",
+        },
+    },
+    epecificaciones:{
+        ram: "16GB",
+        cpu: "Intel i7",
+    },
+},
+{
+    id:2,
+    nombre: "Monitor",
+    precio: 500,
+    fabricante: {
+        nombre: "Samsung",
+        pais: "Corea",
+        constacto: {
+            email: "info@samsung.com",
+            telefono: "+1-555-0123",
+        },
+    },
+    epecificaciones:{
+        ram: "8GB",
+        cpu: "Intel i5",
+    },
+},
+{
+    id:3,
+    nombre: "Teclado",
+    precio: 200,
+    fabricante: {
+        nombre: "Logitech",
+        pais: "USA",
+        constacto: {
+            email: "info@logitech.com",
+            telefono: "+1-555-0123",
+        },
+    },
+    epecificaciones:{
+        ram: "4GB",
+        cpu: "Intel i3",
+    },
+},
+]
+
+//crear una función que extraiga los datos del objeto y me devuelva la siguiente estructura
+
+//nombre, fabricante {nombre, contacto}, especificaciones(solo la ram)
+//Imaginemos un ARRAY DE PRODUCTOS.
+//USANDO LA NUEVA ESPECIFICACIÓN OBTENER el nombre del producto con más ram
+
+const extraerData = (products)=>{
+    const {
+        nombre,
+        fabricante:{ nombre:nombreFabricante, contacto },
+        especificaciones:{ ram }
+    }= arrayProducts
+    return{
+        nombre,
+        fabricante,
+        especificaciones
+    }
+};
+
+const newDataArray = (arrayProducts) => arrayProducts
+    .map(product => extraerData(product))
+
+
+
