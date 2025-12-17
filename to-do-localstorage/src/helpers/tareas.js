@@ -76,14 +76,90 @@ export const addTarea = (nombre)=>{
 
 //deleteTarea(id)
 export const deleteTarea = (id)=>{
-    dbTareas.find(localStorage.getItem(clave, id))
+    try {
+    const tareas = getTareas();
+    const nuevasTareas = tareas.filter(t => t.id !== id);
+    saveTareas(nuevasTareas);
+    console.log(`🗑️ Tarea con id ${id} eliminada`);
+  } catch (error) {
+    console.error('❌ Error al eliminar tarea:', error);
+  }
+   
 }
 //completarTarea(id)
+export function completarTarea(id) {
+  try {
+    const tareas = getTareas();
+    const tarea = tareas.find(t => t.id === id);
+    if (tarea) {
+      tarea.completada = true;
+      saveTareas(tareas);
+      console.log(`✅ Tarea completada: ${tarea.nombre}`);
+    } else {
+      console.warn('⚠️ Tarea no encontrada');
+    }
+  } catch (error) {
+    console.error('❌ Error al completar tarea:', error);
+  }
+}
+
 //descompletarTarea(id)
+export function descompletarTarea(id) {
+  try {
+    const tareas = getTareas();
+    const tarea = tareas.find(t => t.id === id);
+    if (tarea) {
+      tarea.completada = false;
+      saveTareas(tareas);
+      console.log(`🔄 Tarea desmarcada: ${tarea.nombre}`);
+    } else {
+      console.warn('⚠️ Tarea no encontrada');
+    }
+  } catch (error) {
+    console.error('❌ Error al descompletar tarea:', error);
+  }
+}
+
 //buscarCompletadas()
+export function buscarCompletadas() {
+  try {
+    return getTareas().filter(t => t.completada);
+  } catch (error) {
+    console.error('❌ Error al buscar tareas completadas:', error);
+    return [];
+  }
+}
+
 //buscarNoCompletadas()
+export function buscarNoCompletadas() {
+  try {
+    return getTareas().filter(t => !t.completada);
+  } catch (error) {
+    console.error('❌ Error al buscar tareas no completadas:', error);
+    return [];
+  }
+}
 //buscarPorNombre(nombre)
+export function buscarPorNombre(nombre) {
+  try {
+    const texto = nombre.trim().toLowerCase();
+    return getTareas().filter(t => t.nombre.toLowerCase().includes(texto));
+  } catch (error) {
+    console.error('❌ Error al buscar por nombre:', error);
+    return [];
+  }
+}
+
 //borrarTodasLasTareas()
+export function borrarTodasLasTareas() {
+  try {
+    localStorage.removeItem('tareas');
+    console.log('🧹 Todas las tareas han sido eliminadas');
+  } catch (error) {
+    console.error('❌ Error al borrar todas las tareas:', error);
+  }
+}
+
 //Elimina completamente la clave "tareas" del localStorage, dejándolo vacio.
 
 const saveJSONParse = (text)=>{

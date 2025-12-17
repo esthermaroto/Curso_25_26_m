@@ -1,0 +1,1 @@
+Crear un componente card, props = src y un texto, automáticamente pinte una tarjeta con una imagen y un texto. Renderizar en app dos tarjetas con imágenes diferentes

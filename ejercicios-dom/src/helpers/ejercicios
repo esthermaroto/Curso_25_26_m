@@ -1,0 +1,66 @@
+EJERCICIO DE EXAMEN
+
+url https://rickandmortyapi.com/api/character/?name= 
+Crear un buscador de rick y morty dinámico ( con cada pulsación del teclado realizo la busqueda), para que através de un formulario para q utilizando el botón de buscar o enter, realizará una búsqueda por el nombre de todas las posibles coincidencias mostrando en un grid los resultados.
+
+Utilizar fetch para traer los datos
+Implementar una caché para que através de un map, guarde las búsquedas anteriores. Si busco dos veces la misma palabra no lo buscará en la api sino que se lo traerá del map.
+**Opcional**
+Añadir persistencia de los datos 
+
+
+EJERCICIO DEL VIERNES
+
+Una lista de tareas:
+-sin completar
+-en proceso
+-completada
+
+con eventos, que la tarea cambie de estado mediante clicks 
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+**EJERCICIO EJEMPLO DE EXAMEN**
+
+crear una aplicación que consulta el clima constituida por 6 elementos subdivididos en:
+-header
+-footer
+-main
+
+El header y el footer se construyen utilizando los elementos que hemos visto del DOM.
+El main está subdividido en 3 componentes:
+-search card: se encarga de buscar dentro de la API la ciudad que queramos(ejemplificar el uso de un almacenamiento con map en localstorage)
+-weather card:  dispondremos de un array de 15 img almacenadas en public con los diferentes estados climatológicos posibles
+-favorite card: almacena las ciudades o tarjetas favoritas (para hacer favorita una ciudad basta con dar dos click de ratón, para sacar una tarjeta de las favoritas    botón derecho **Opcional** mensaje de verificación)
+
+**persistencia**
+
+**EJERCICIO EJEMPLO EXAMEN 2**
+crear un sistema booking de gestión de reseervas que permita ejemplificar la reserva en un hotel.
+
+El sistema tendra la siguiente interfaz:
+    BOOKING - SISTEMA DE RESERVAS
+
+- un desplegable donde pueda seleccionar de una API privada de json server
+- dos imput date (check-in check-out) donde el check-out no puede ser anterior al check-in
+- número de huespedes 
+
+Automaticamente mostrará, utilizanzo un card hotel, todos los hoteles que tengan disponibilidad en es rango.
+Al hacer click en la tarjeta automáticament se añadirá a un componente carrito reserva la información del hotel, el número de personas, el nº de estrellas y el total a pagar.
+
+El total a pagar es = al nº de huesped * el precio de la habitación del hotel.
+
+Desglosar el iva.
+
+- Finalizar la reserva borra todo y empieza de nuevo 
+
+**Persistencia**
+
+Crear una palicación para gestionar las reseñas de restaurantes utilizando closure y pattern factory
+sistema de reseñas que permita a los usuarios:
+- escribir reseñas de restaurantes
+- calificar por un sistema de estrellas 1-5 a los restaurantes
+- validar los datos del formulario
+- guardar las reseñas en el localstorage
+- ver y eliminar reseñas guardadas 
+

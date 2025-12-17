@@ -1,0 +1,46 @@
+{
+  "peliculas": [
+    {
+      "id": 1,
+      "titulo": "Interstellar",
+      "genero": "Sci-Fi",
+      "rating": 8.7,
+      "poster": "https://image.tmdb.org/t/p/w200/nBNZadXqJSdt05SHLqgT0HuC5Gm.jpg"
+    },
+    {
+      "id": 2,
+      "titulo": "La La Land",
+      "genero": "Musical",
+      "rating": 8.0,
+      "poster": "https://image.tmdb.org/t/p/w200/ylXCdC106IKiarftHkcacasaAcb.jpg"
+    },
+    {
+      "id": 3,
+      "titulo": "Titanic",
+      "genero": "Romance",
+      "rating": 7.9,
+      "poster": "https://image.tmdb.org/t/p/w200/9xjZS2rlVxm8SFx8kPC3aIGCOYQ.jpg"
+    },
+    {
+      "id": 4,
+      "titulo": "Mad Max: Fury Road",
+      "genero": "Acción",
+      "rating": 8.1,
+      "poster": "https://image.tmdb.org/t/p/w200/hA2ple9q4qnwxp3hKVNhroipsir.jpg"
+    },
+    {
+      "id": 5,
+      "titulo": "Ex Machina",
+      "genero": "Sci-Fi",
+      "rating": 7.6,
+      "poster": "https://image.tmdb.org/t/p/w200/6jGw0Gz8ZC6UuVkeJ8B9LGovdwv.jpg"
+    },
+    {
+      "id": 6,
+      "titulo": "Moulin Rouge!",
+      "genero": "Musical",
+      "rating": 7.6,
+      "poster": "https://image.tmdb.org/t/p/w200/4VWSyMzJ8yxTP9EkY7WiNn5t1wp.jpg"
+    }
+  ]
+}

@@ -1,0 +1,1166 @@
+/* Estilos generales para todos los ejercicios */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+  padding: 2rem;
+  line-height: 1.6;
+}
+
+#app {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1,
+h2,
+h3 {
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+  border-bottom: 2px solid #667eea;
+  padding-bottom: 0.5rem;
+}
+
+/* ESTILOS EJERCICIO 1 */
+.welcome-message {
+  color: #007bff;
+  font-size: 1.2rem;
+  padding: 1rem;
+  text-align: center;
+  border-left: 4px solid #007bff;
+  background: #f8f9fa;
+  border-radius: 0 4px 4px 0;
+}
+
+/* ESTILOS EJERCICIO 2 */
+.task-list {
+  list-style: none;
+  padding: 0;
+}
+
+.task-item {
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.5rem;
+  background: #f9f9f9;
+  border-left: 4px solid #667eea;
+  color: #555;
+  border-radius: 0 4px 4px 0;
+  transition: all 0.3s ease;
+}
+
+.task-item:hover {
+  background: #f0f0f0;
+  transform: translateX(5px);
+}
+
+.task-item.completed {
+  background: #e6ffe6;
+  border-left-color: #27ae60;
+  text-decoration: line-through;
+  color: #999;
+}
+
+/* ESTILOS EJERCICIO 3 */
+.movies-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.movie-card {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.movie-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.movie-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.movie-year {
+  color: #666;
+  margin-bottom: 0.75rem;
+  font-size: 0.9rem;
+}
+
+.movie-rating {
+  color: #f39c12;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+/* ESTILOS EJERCICIO 4 */
+.table-container {
+  overflow-x: auto;
+  margin-top: 2rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+thead {
+  background: #667eea;
+  color: white;
+}
+
+th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: bold;
+  border-bottom: 2px solid #555;
+}
+
+td {
+  padding: 1rem;
+  border-bottom: 1px solid #ddd;
+}
+
+tbody tr:hover {
+  background: #f0f0f0;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.price {
+  font-weight: bold;
+  color: #27ae60;
+}
+
+.rating {
+  color: #f39c12;
+  font-weight: bold;
+}
+
+/* ESTILOS EJERCICIO 5 */
+.message-container {
+  min-height: 60px;
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-family: Arial, sans-serif;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.form-row .form-group {
+  margin-bottom: 0;
+}
+
+button {
+  width: 100%;
+  padding: 0.75rem;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #5568d3;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+.error {
+  color: #e74c3c;
+  background: #ffe6e6;
+  padding: 1rem;
+  border-radius: 4px;
+  border-left: 4px solid #e74c3c;
+}
+
+.success {
+  color: #27ae60;
+  background: #e6ffe6;
+  padding: 1rem;
+  border-radius: 4px;
+  border-left: 4px solid #27ae60;
+}
+
+/* ESTILOS EJERCICIO 6 */
+.users-container {
+  margin-top: 2rem;
+}
+
+.user-card {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.user-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.user-name {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.user-info {
+  color: #666;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.skills-container {
+  margin-bottom: 1rem;
+}
+
+.skill-tag {
+  display: inline-block;
+  background: #667eea;
+  color: white;
+  padding: 0.3rem 0.6rem;
+  margin: 0.2rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.level-badge {
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.level-badge.senior {
+  background: #27ae60;
+  color: white;
+}
+
+.level-badge.junior {
+  background: #f39c12;
+  color: white;
+}
+
+/* ESTILOS EJERCICIO 7 */
+.blog-container {
+  margin-top: 2rem;
+}
+
+.post {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.post:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.post-title {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.post-meta {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+.post-content {
+  color: #555;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.tags-container {
+  margin-bottom: 1rem;
+}
+
+.tag {
+  display: inline-block;
+  background: #e9ecef;
+  color: #495057;
+  padding: 0.3rem 0.6rem;
+  margin: 0.2rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+}
+
+.likes-count {
+  color: #e74c3c;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+/* ESTILOS EJERCICIO 8 */
+.menu-container {
+  margin-top: 2rem;
+}
+
+.restaurant-title {
+  text-align: center;
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+.menu-category {
+  margin-bottom: 3rem;
+}
+
+.category-title {
+  font-size: 1.5rem;
+  color: #667eea;
+  margin-bottom: 1rem;
+}
+
+.category-divider {
+  border: none;
+  height: 2px;
+  background: #667eea;
+  margin-bottom: 1.5rem;
+}
+
+.dishes-container {
+  margin-left: 1rem;
+}
+
+.dish-item {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.dish-item:last-child {
+  border-bottom: none;
+}
+
+.dish-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.dish-name {
+  font-weight: bold;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+.dish-price {
+  font-weight: bold;
+  color: #27ae60;
+  font-size: 1.1rem;
+}
+
+.dish-description {
+  color: #666;
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+/* ESTILOS EJERCICIO 9 */
+.timeline-container {
+  position: relative;
+  margin-top: 2rem;
+  padding: 2rem 0;
+}
+
+.timeline-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: #667eea;
+  transform: translateX(-50%);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 3rem;
+  width: 45%;
+}
+
+.timeline-item.left {
+  left: 0;
+  text-align: right;
+  padding-right: 2rem;
+}
+
+.timeline-item.right {
+  left: 55%;
+  padding-left: 2rem;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  top: 1rem;
+  width: 20px;
+  height: 20px;
+  background: #667eea;
+  border: 4px solid white;
+  border-radius: 50%;
+  z-index: 1;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.timeline-item.left::before {
+  right: -2.5rem;
+}
+
+.timeline-item.right::before {
+  left: -2.5rem;
+}
+
+.event-content {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.event-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.event-datetime {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.event-location {
+  color: #667eea;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.speakers-list {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.event-meta {
+  font-size: 0.9rem;
+  color: #333;
+  font-weight: bold;
+}
+
+/* ESTILOS EJERCICIO 10 */
+.portfolio-container {
+  margin-top: 2rem;
+}
+
+.filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  justify-content: center;
+}
+
+.filter-btn {
+  padding: 0.5rem 1rem;
+  background: #e9ecef;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #495057;
+}
+
+.filter-btn:hover {
+  background: #dee2e6;
+}
+
+.filter-btn.active {
+  background: #667eea;
+  color: white;
+}
+
+.projects-count {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #666;
+  font-style: italic;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.project-card {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.featured-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #f39c12;
+  color: white;
+  padding: 0.3rem 0.6rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  z-index: 1;
+}
+
+.project-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.project-card-content {
+  padding: 1.5rem;
+}
+
+.project-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.project-description {
+  color: #666;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tech-badge {
+  background: #667eea;
+  color: white;
+  padding: 0.3rem 0.6rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+/* ESTILOS RESPONSIVOS */
+@media (max-width: 768px) {
+  body {
+    padding: 1rem;
+  }
+
+  #app {
+    padding: 1rem;
+  }
+
+  .movies-container,
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline-item {
+    width: 100%;
+    left: 0 !important;
+    padding-left: 3rem !important;
+    padding-right: 1rem !important;
+    text-align: left !important;
+  }
+
+  .timeline-item::before {
+    left: 1rem !important;
+    right: auto !important;
+  }
+
+  .timeline-line {
+    left: 1rem;
+  }
+
+  .dish-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .filter-buttons {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  .user-card,
+  .post {
+    padding: 1rem;
+  }
+
+}
+
+.character-img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .mensaje-error {
+  background-color: #f8d7da;    /* fondo rojo suave */
+  color: #721c24;               /* texto rojo oscuro */
+  padding: 0.75rem 1rem;
+  margin-top: 0.75rem;
+  border-radius: 6px;
+  border: 1px solid #f5c6cb;    /* borde rojo claro */
+  text-align: center;
+  font-weight: 500;
+}
+
+
+.spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  font-weight: bold;
+  color: gray;
+  letter-spacing: 3px;
+  margin-top: 10px;
+  animation: blink 1.4s infinite both;
+}
+
+@keyframes blink {
+  0%   { opacity: .2; }
+  20%  { opacity: 1; }
+  100% { opacity: .2; }
+}
+
+
+.indicador {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-left: 8px;
+}
+
+.indicador-cache {
+  background-color: #4CAF50; /* verde */
+}
+
+.indicador-api {
+  background-color: #2196F3; /* azul */
+}
+
+/* ESTILOS EJERCICIO 12 */
+/* ---- RESET BÁSICO ---- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: linear-gradient(to bottom, #4a90e2, #50c9c3);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+}
+
+/* ---- HEADER ---- */
+header {
+  
+  text-align: center;
+  padding: 20px;
+  font-size: 1.8rem;
+  font-weight: bold;
+  backdrop-filter: blur(6px);
+}
+
+/* ---- MAIN ---- */
+main {
+  flex: 1;
+  display: grid;
+  gap: 20px;
+  padding: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+/* ---- TARJETAS ---- */
+.card {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  padding: 20px;
+  backdrop-filter: blur(6px);
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* ---- SEARCH CARD ---- */
+.search-card input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  margin-bottom: 10px;
+}
+
+.search-card button {
+  width: 100%;
+  padding: 12px;
+  border-radius: 6px;
+  background: #003a6f;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.search-card button:hover {
+  background: #002b52;
+}
+
+/* ---- WEATHER CARD ---- */
+.weather-card {
+  text-align: center;
+}
+
+.weather-card img {
+  width: 100px;
+  margin: 10px auto;
+  display: block;
+}
+
+.temperature {
+  font-size: 2.2rem;
+  font-weight: bold;
+  margin-top: 10px;
+  color: #333;
+}
+
+.weather-info {
+  margin-top: 5px;
+  font-size: 1.1rem;
+  color: #555;
+}
+
+/* ---- FAVORITE CARD ---- */
+.favorite-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.favorite-item {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.favorite-item:hover {
+  background: rgba(255, 255, 255, 0.35);
+  transform: scale(1.03);
+}
+
+/* ---- FOOTER ---- */
+footer {
+  background: rgba(3, 3, 120, 0.25);
+  text-align: center;
+  padding: 15px;
+  font-size: 0.9rem;
+  backdrop-filter: blur(6px);
+}
+
+/* ---- RESPONSIVE AJUSTES ---- */
+@media (max-width: 600px) {
+  header {
+    font-size: 1.4rem;
+  }
+
+  .temperature {
+    font-size: 1.7rem;
+  }
+}
+
+
+
+
+
+
+/* ---- RESET BÁSICO ---- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+/* ---- CONTENEDOR PRINCIPAL ---- */
+.hotels-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  background: #f6f8fb;
+}
+
+/* ---- TARJETA DE HOTEL ---- */
+.hotel-card {
+  background: #ffffff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.hotel-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+/* ---- IMAGEN ---- */
+.hotel-photo {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  background: #dcdcdc;
+}
+
+/* ---- INFO ---- */
+.hotel-info {
+  padding: 15px;
+}
+
+.hotel-name {
+  font-size: 20px;
+  font-weight: bold;
+  color: #1a2540;
+  margin-bottom: 6px;
+}
+
+.hotel-city {
+  font-size: 14px;
+  color: #637086;
+  margin-bottom: 10px;
+}
+
+/* ---- RATING ---- */
+.hotel-rating {
+  font-size: 14px;
+  font-weight: bold;
+  color: #f4b000;
+  margin-bottom: 8px;
+}
+
+/* ---- AMENIDADES ---- */
+.hotel-amenities {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.hotel-amenities span {
+  background: #ebf1ff;
+  color: #3154c7;
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-size: 12px;
+}
+
+/* ---- PRECIO ---- */
+.hotel-price {
+  font-size: 18px;
+  color: #2b8a3e;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+/* ---- BOTÓN RESERVAR ---- */
+.btn-book {
+  background: #1e5afe;
+  color: white;
+  border: none;
+  padding: 12px;
+  font-size: 15px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: auto;
+  border-radius: 0 0 14px 14px;
+  transition: background 0.2s;
+}
+
+.btn-book:hover {
+  background: #003be7;
+}
+
+
+/* 
+PELICULAS 
+*/
+
+/* ======= RESET BÁSICO ======= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #121212;
+  color: #eee;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* ======= CONTENEDOR GENERAL ======= */
+.movies-container {
+  width: 95%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* ======= HEADER ======= */
+.header {
+  text-align: center;
+  background: #1f1f1f;
+  padding: 20px 10px;
+  border-radius: 8px;
+}
+
+.header h1 {
+  color: #ffde59;
+  font-size: 2.2rem;
+  margin-bottom: 5px;
+}
+
+.header h6 {
+  color: #bbb;
+}
+
+/* ======= SELECT DE BÚSQUEDA ======= */
+#selecciona-genero {
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 2px solid #ffde59;
+  background: #2a2a2a;
+  color: #eee;
+  cursor: pointer;
+  outline: none;
+  margin-bottom: 20px;
+}
+
+#selecciona-genero:hover {
+  background: #373737;
+}
+
+/* ======= GRID DE RESULTADOS ======= */
+.movies-container > div > div {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 20px;
+}
+
+/* ======= CARD DE PELÍCULA ======= */
+div > div > div {
+  background: #1c1c1c;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  transition: transform .2s ease, box-shadow .3s ease;
+  cursor: pointer;
+}
+
+div > div > div:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 10px #ffde59;
+}
+
+/* Imagen de la película */
+div > div > div img {
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+div > div > div h5 {
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+div > div > div p {
+  font-size: 0.9rem;
+  color: #ffde59;
+}
+
+/* ======= SECCIÓN FAVORITOS ======= */
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #ffde59;
+  padding-bottom: 5px;
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 15px;
+}
+
+ul li div {
+  background: #222;
+  border: 1px solid #ffde59;
+}
+
+ul li div:hover {
+  background: #352f14;
+  box-shadow: 0 0 15px #ffde59;
+}
+
+/* ======= FOOTER ======= */
+.footer {
+  text-align: center;
+  color: #aaa;
+  padding: 10px;
+  font-size: .9rem;
+}
